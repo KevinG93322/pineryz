@@ -1,57 +1,65 @@
 "use client";
 
-import type { FormEvent } from "react";
+import { useState, type FormEvent } from "react";
 
 import styles from "./job.module.css";
 
-const email = "info@pineryz.com";
-
-function field(data: FormData, name: string) {
-  const value = data.get(name);
-  return typeof value === "string" ? value.trim() : "";
-}
-
-function fileName(data: FormData, name: string) {
-  const value = data.get(name);
-  if (value instanceof File && value.name) {
-    return value.name;
-  }
-  return "";
-}
+const DESTINATION = "info@pineryz.com";
+const MAX_RESUME_BYTES = 5 * 1024 * 1024;
 
 export function ApplicationForm({ roleTitle }: { roleTitle: string }) {
-  function onSubmit(event: FormEvent<HTMLFormElement>) {
+  const [sending, setSending] = useState(false);
+  const [sent, setSent] = useState(false);
+  const [error, setError] = useState("");
+
+  async function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    const resume = fileName(data, "resume");
-    const lines = [
-      `Role: ${roleTitle}`,
-      `First name: ${field(data, "firstName")}`,
-      `Last name: ${field(data, "lastName")}`,
-      `Preferred first name: ${field(data, "preferredName")}`,
-      `Email: ${field(data, "email")}`,
-      `Country: ${field(data, "country")}`,
-      `Phone: ${field(data, "phone")}`,
-      `City: ${field(data, "city")}`,
-      `LinkedIn: ${field(data, "linkedin")}`,
-      `Website: ${field(data, "website")}`,
-      "",
-      resume
-        ? `Resume selected: ${resume}. Please attach this file before sending.`
-        : "Resume: please attach the file before sending.",
-    ];
-    const href = `mailto:${email}?subject=${encodeURIComponent(
-      `Application — ${roleTitle}`,
-    )}&body=${encodeURIComponent(lines.join("\n"))}`;
-    window.location.href = href;
+    setError("");
+    setSent(false);
+
+    const form = event.currentTarget;
+    const data = new FormData(form);
+    const resume = data.get("resume");
+    if (resume instanceof File && resume.size > MAX_RESUME_BYTES) {
+      setError("The resume needs to be 5 MB or less.");
+      return;
+    }
+
+    setSending(true);
+    try {
+      const response = await fetch("/api/careers/apply", {
+        method: "POST",
+        body: data,
+      });
+      const payload = (await response.json().catch(() => null)) as { error?: string } | null;
+      if (!response.ok) {
+        setError(
+          payload?.error ||
+            `The application could not be sent. Email ${DESTINATION} directly.`,
+        );
+        return;
+      }
+
+      form.reset();
+      setSent(true);
+    } catch {
+      setError(`The application could not be sent. Email ${DESTINATION} directly.`);
+    } finally {
+      setSending(false);
+    }
   }
 
   return (
     <form className={styles.form} id="apply" onSubmit={onSubmit}>
       <h2>Apply for this job</h2>
       <p className={styles.formNote}>
-        Submit opens an email to {email}. Attach the resume in that email.
+        Submit sends this application to {DESTINATION}. A resume is included when you add one.
       </p>
+      <input type="hidden" name="role" value={roleTitle} />
+      <label className={styles.honey}>
+        Company website
+        <input name="companyWebsite" tabIndex={-1} autoComplete="off" />
+      </label>
       <label>
         First name
         <input name="firstName" autoComplete="given-name" required />
@@ -94,8 +102,20 @@ export function ApplicationForm({ roleTitle }: { roleTitle: string }) {
         Website
         <input name="website" type="url" placeholder="https://" />
       </label>
+      {error ? (
+        <p className={styles.formError} role="alert">
+          {error}
+        </p>
+      ) : null}
+      {sent ? (
+        <p className={styles.formNote} role="status">
+          Your application was sent to {DESTINATION}.
+        </p>
+      ) : null}
       <div className={styles.submitRow}>
-        <button type="submit">Submit application</button>
+        <button type="submit" disabled={sending}>
+          {sending ? "Sending…" : "Submit application"}
+        </button>
       </div>
     </form>
   );
