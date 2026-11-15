@@ -8,6 +8,10 @@ import styles from "./not-found.module.css";
 export const metadata: Metadata = {
   title: "Page not found",
   description: "This address is not part of the PineryZ site.",
+  robots: {
+    index: false,
+    follow: false,
+  },
 };
 
 export default function NotFound() {
