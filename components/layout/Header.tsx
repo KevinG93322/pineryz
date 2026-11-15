@@ -247,7 +247,7 @@ export function Header() {
           </ul>
           <div className={styles.actions}>
             <a href={consoleHref} className={styles.contact} onClick={closeMenu}>
-              Launch VaultOS
+              View demonstration
             </a>
           </div>
         </nav>

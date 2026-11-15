@@ -9,7 +9,7 @@ import styles from "./page.module.css";
 export const metadata: Metadata = {
   title: "VaultOS",
   description:
-    "VaultOS is a standardized on-chain vault foundation. Create a vault under a business’s own name and symbol, then verify the creation transaction before it is registered in the console.",
+    "VaultOS is a demonstration of an on-chain vault foundation. It shows a vault under a business’s own name and symbol, after the console checks the creation transaction. It is not a live service.",
 };
 
 const startingPoint = [
@@ -61,9 +61,9 @@ export default function VaultOSPage() {
           <div className={styles.heroInner}>
             <h1>VaultOS</h1>
             <p className={styles.lede}>
-              VaultOS is a standardized on-chain vault foundation, with branded vaults and
-              configurable names and symbols. The console verifies on-chain vault creation
-              transactions before registering vaults.
+              VaultOS is a demonstration of an on-chain vault foundation. It shows a vault
+              under a business’s own name and symbol. The console verifies the creation
+              transaction before registering the vault. This is not a live service.
             </p>
             <div className={styles.actions}>
               <a href={consoleHref} className={styles.primary}>
@@ -80,9 +80,10 @@ export default function VaultOSPage() {
           <section className={styles.panel} aria-labelledby="what-heading">
             <h2 id="what-heading">What VaultOS is</h2>
             <p>
-              VaultOS is PineryZ’s flagship: a standardized on-chain vault foundation. Start with
-              the underlying vault infrastructure a business can build upon, then expand into a
-              yield platform. A vault first. A yield platform later.
+              VaultOS is PineryZ’s planned flagship, shown today as a demonstration: a
+              standardized on-chain vault foundation. The direction is to start with that
+              foundation, then expand into a yield platform. A vault first. A yield platform
+              later.
             </p>
             <p>
               The business chooses the name and the symbol. Its customers see the business.

@@ -10,7 +10,7 @@ const columns = [
     title: "Product",
     links: [
       { href: "/vaultos", label: "VaultOS" },
-      { href: consoleHref, label: "Console" },
+      { href: consoleHref, label: "Demonstration" },
     ],
   },
   {
@@ -41,7 +41,7 @@ const socials = [
     ),
   },
   {
-    href: "https://www.linkedin.com/company/pineryz.com",
+    href: "https://www.linkedin.com/company/pineryz",
     label: "LinkedIn",
     icon: (
       <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
@@ -71,7 +71,7 @@ export function Footer() {
               <span className={styles.name}>PineryZ</span>
             </Link>
             <p className={styles.headline}>
-              Start building your financial product, onchain
+              A demonstration of on-chain vault infrastructure.
             </p>
           </div>
 

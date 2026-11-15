@@ -13,7 +13,7 @@ const plexSans = IBM_Plex_Sans({
 export const metadata: Metadata = {
   title: "PineryZ",
   description:
-    "PineryZ is a technology company focused on blockchain infrastructure, tokenization, and Web3 applications. VaultOS, our flagship product, has a completed MVP, and product expansion is underway.",
+    "PineryZ is a technology company working on blockchain infrastructure. VaultOS, the planned flagship, is a demonstration of on-chain vault creation and registration.",
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {

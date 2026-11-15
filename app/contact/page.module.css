@@ -63,6 +63,10 @@
   max-width: var(--layout-measure);
 }
 
+.panel a {
+  color: var(--color-teal);
+}
+
 .panel p + p,
 .panel ul {
   margin-top: var(--space-4);
@@ -74,6 +78,17 @@
 
 .messagePanel {
   max-width: 640px;
+}
+
+.callPanel {
+  max-width: none;
+}
+
+.calendly {
+  width: 100%;
+  height: 720px;
+  margin-top: var(--space-6);
+  border: 0;
 }
 
 .tabs {
@@ -109,6 +124,14 @@
   display: grid;
   gap: var(--space-3);
   margin-top: var(--space-6);
+}
+
+.honey {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
 }
 
 .pair {
@@ -189,6 +212,11 @@
 
 .submit:hover {
   background: var(--color-teal-hover);
+}
+
+.submit:disabled {
+  cursor: wait;
+  opacity: 0.7;
 }
 
 .items {

@@ -28,7 +28,7 @@ const areas = [
   },
   {
     title: "Developer opportunities",
-    text: "A subject an email can cover. This is not a list of open roles.",
+    text: "A subject an email can cover. Open roles are listed on the careers page.",
   },
 ] as const;
 
@@ -51,6 +51,16 @@ export default function ContactPage() {
         <div className={styles.body}>
           <MessageCard />
 
+          <section className={styles.panel} aria-labelledby="careers-heading">
+            <h2 id="careers-heading">Looking for a role?</h2>
+            <p>Open positions and applications are on the careers page.</p>
+            <div className={styles.actions}>
+              <Link href="/careers" className={styles.secondary}>
+                Go to Careers
+              </Link>
+            </div>
+          </section>
+
           <section className={styles.panel} aria-labelledby="areas-heading">
             <h2 id="areas-heading">Collaboration areas</h2>
             <p>An email can cover any of these subjects.</p>
@@ -72,7 +82,7 @@ export default function ContactPage() {
                 Explore VaultOS
               </Link>
               <a href={consoleHref} className={styles.secondary}>
-                Launch VaultOS
+                Open the demonstration
               </a>
             </div>
           </section>

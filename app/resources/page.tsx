@@ -8,8 +8,7 @@ import styles from "./page.module.css";
 
 export const metadata: Metadata = {
   title: "Resources",
-  description:
-    "PineryZ documents, including the VaultOS whitepaper and open role descriptions.",
+  description: "Open role descriptions for people interested in joining PineryZ.",
 };
 
 export default function ResourcesPage() {
@@ -18,36 +17,14 @@ export default function ResourcesPage() {
       <section className={styles.hero}>
         <div className={styles.heroInner}>
           <p className={styles.eyebrow}>Resources</p>
-          <h1>Documents</h1>
+          <h1>Role descriptions</h1>
           <p className={styles.lede}>
-            Product material for VaultOS, and role descriptions for people
-            interested in joining PineryZ.
+            Role descriptions for people interested in joining PineryZ.
           </p>
         </div>
       </section>
 
       <div className={styles.body}>
-        <section id="whitepaper" className={styles.panel}>
-          <h2>VaultOS whitepaper</h2>
-          <p>
-            The VaultOS whitepaper covers the product direction for on-chain
-            vault infrastructure under a business&apos;s own name and symbol.
-          </p>
-          <p className={styles.actions}>
-            <a
-              className={styles.primary}
-              href="/docs/vaultos-whitepaper.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Download whitepaper
-            </a>
-            <Link className={styles.secondary} href="/vaultos">
-              Explore VaultOS
-            </Link>
-          </p>
-        </section>
-
         <section id="job-descriptions" className={styles.panel}>
           <h2>Job descriptions</h2>
           <p>

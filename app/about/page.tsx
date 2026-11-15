@@ -27,7 +27,7 @@ const focus = [
   },
   {
     title: "Web3 product development",
-    text: "Working products that connect established financial workflows with on-chain technology.",
+    text: "Product work that connects established financial workflows with on-chain technology. The public example is the VaultOS demonstration.",
   },
 ] as const;
 
@@ -44,8 +44,8 @@ const approach = [
   },
   {
     index: "03",
-    title: "Build working products",
-    text: "Turn the design into a working MVP that can be exercised, including the current vault demonstration.",
+    title: "Build a demonstration",
+    text: "Turn the design into a demonstration that can be exercised. The current example is the VaultOS console.",
   },
   {
     index: "04",
@@ -134,8 +134,9 @@ export default function AboutPage() {
           <section className={styles.panel} aria-labelledby="vaultos-heading">
             <h2 id="vaultos-heading">PineryZ and VaultOS</h2>
             <p>
-              PineryZ is the company. VaultOS is the flagship: a standardized on-chain vault
-              foundation, with branded vaults and configurable names and symbols.
+              PineryZ is the company. VaultOS is the planned flagship, shown today as a
+              demonstration: a standardized on-chain vault foundation, with branded vaults and
+              configurable names and symbols.
             </p>
             <p>
               The console is designed to verify on-chain vault creation transactions before
@@ -177,7 +178,7 @@ export default function AboutPage() {
                 Explore VaultOS
               </Link>
               <a href={consoleHref} className={styles.secondary}>
-                Launch VaultOS
+                Open the demonstration
               </a>
             </div>
           </section>

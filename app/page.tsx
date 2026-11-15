@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
-import { consoleHref } from "@/components/layout/navigation";
+import { consoleHref, docsHref } from "@/components/layout/navigation";
 import { MarketingShell } from "@/components/layout/MarketingShell";
 
 import styles from "./page.module.css";
@@ -30,16 +30,40 @@ const services = [
   {
     title: "Easy integration",
     text: "One GraphQL API serves every vault data. Put the whole experience on your own site, in your own design.",
-    href: "/vaultos",
+    href: docsHref,
     label: "Read the docs",
     arrow: "↗",
+  },
+] as const;
+
+const demonstration = [
+  {
+    title: "A vault under the business’s name",
+    text: "In the demonstration, a vault is created on-chain under a name and symbol the business chooses. PineryZ stays underneath.",
+    href: "/vaultos",
+    label: "Explore VaultOS",
+    arrow: "→",
+  },
+  {
+    title: "A check before registration",
+    text: "The console reads the creation transaction and registers the vault only after that check passes. It does not create the vault or hold a key.",
+    href: "/vaultos",
+    label: "See how it works",
+    arrow: "→",
+  },
+  {
+    title: "A conversation, not a live service",
+    text: "The demonstration does not operate yield, custody, or a public API. Write to PineryZ to discuss the direction.",
+    href: "/contact",
+    label: "Contact us",
+    arrow: "→",
   },
 ] as const;
 
 const purpose = [
   {
     title: "The job",
-    text: "A business that wants an on-chain pool can assemble a vault itself, or start with a platform built for funds that already have managers and a compliance team. VaultOS is the third path: one pattern that creates the vault.",
+    text: "A business that wants an on-chain pool can assemble a vault itself, or start with a platform built for funds that already have managers and a compliance team. VaultOS is a third path in demonstration: one vault pattern, created on-chain, then checked before the console registers it.",
   },
   {
     title: "The name",
@@ -160,9 +184,39 @@ export default function Home() {
               <li key={service.title} className={styles.serviceCard}>
                 <h3>{service.title}</h3>
                 <p>{service.text}</p>
-                <Link className={styles.serviceLink} href={service.href}>
-                  {service.label}
-                  <span aria-hidden="true"> {service.arrow}</span>
+                {service.href.startsWith("http") ? (
+                  <a
+                    className={styles.serviceLink}
+                    href={service.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {service.label}
+                    <span aria-hidden="true"> {service.arrow}</span>
+                  </a>
+                ) : (
+                  <Link className={styles.serviceLink} href={service.href}>
+                    {service.label}
+                    <span aria-hidden="true"> {service.arrow}</span>
+                  </Link>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      <section className={styles.bandAlt} aria-labelledby="demonstration-heading">
+        <div className={styles.inner}>
+          <h2 id="demonstration-heading">What the demonstration shows</h2>
+          <ul className={styles.serviceGrid}>
+            {demonstration.map((item) => (
+              <li key={item.title} className={styles.serviceCard}>
+                <h3>{item.title}</h3>
+                <p>{item.text}</p>
+                <Link className={styles.serviceLink} href={item.href}>
+                  {item.label}
+                  <span aria-hidden="true"> {item.arrow}</span>
                 </Link>
               </li>
             ))}
