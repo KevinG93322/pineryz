@@ -26,5 +26,6 @@ Open [http://localhost:3000](http://localhost:3000).
 - `/careers` Open roles
 - `/careers/[slug]` One role and its application
 - `/contact` Message form and a Calendly booking
+- `/privacy` What the site does with names, email addresses, and resumes
 
 Contact messages and job applications are sent to info@pineryz.com. Call booking uses Calendly.

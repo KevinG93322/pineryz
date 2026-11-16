@@ -1,0 +1,66 @@
+.hero {
+  background: var(--color-navy);
+  color: var(--color-text-inverse);
+}
+
+.heroInner,
+.body {
+  width: 100%;
+  max-width: var(--layout-content);
+  margin: 0 auto;
+  padding: var(--space-16) var(--layout-gutter);
+}
+
+.eyebrow {
+  margin: 0 0 var(--space-4);
+  color: var(--color-text-inverse-soft);
+  font-size: var(--text-eyebrow-size);
+  line-height: var(--text-eyebrow-line);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.hero h1 {
+  margin: 0;
+  color: var(--color-text-inverse);
+  font-size: var(--text-display-size);
+  font-weight: var(--font-weight-medium);
+  letter-spacing: var(--text-display-tracking);
+  line-height: var(--text-display-line);
+}
+
+.lede {
+  max-width: var(--layout-measure);
+  margin: var(--space-6) 0 0;
+  color: var(--color-text-inverse-soft);
+}
+
+.body {
+  display: grid;
+  gap: var(--space-6);
+  padding-top: var(--space-12);
+  padding-bottom: var(--space-24);
+}
+
+.panel {
+  padding: var(--space-8);
+  border: var(--border-light);
+  border-radius: var(--radius);
+  background: var(--color-white);
+}
+
+.panel h2 {
+  margin: 0 0 var(--space-4);
+  font-size: var(--text-heading-size);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--text-heading-line);
+}
+
+.panel p {
+  margin: 0;
+  max-width: var(--layout-measure);
+}
+
+.panel a {
+  color: var(--color-teal);
+}

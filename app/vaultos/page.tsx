@@ -67,7 +67,7 @@ export default function VaultOSPage() {
             </p>
             <div className={styles.actions}>
               <a href={consoleHref} className={styles.primary}>
-                Open the demonstration console
+                Launch VaultOS
               </a>
               <Link href="/" className={styles.secondary}>
                 PineryZ homepage
@@ -162,7 +162,7 @@ export default function VaultOSPage() {
             </p>
             <div className={styles.actions}>
               <a href={consoleHref} className={styles.primary}>
-                Open the demonstration console
+                Launch VaultOS
               </a>
               <Link href="/" className={styles.secondary}>
                 PineryZ homepage

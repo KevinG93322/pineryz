@@ -9,6 +9,7 @@ const pages: ReadonlyArray<{ path: string; priority: number }> = [
   { path: "/about", priority: 0.8 },
   { path: "/careers", priority: 0.7 },
   { path: "/contact", priority: 0.7 },
+  { path: "/privacy", priority: 0.4 },
   ...roles.map((role) => ({ path: `/careers/${role.slug}`, priority: 0.6 })),
 ];
 

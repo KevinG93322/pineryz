@@ -261,7 +261,7 @@
   text-decoration: none;
 }
 
-.primary {
+.panel .primary {
   background: var(--color-teal);
   color: var(--color-on-teal);
 }

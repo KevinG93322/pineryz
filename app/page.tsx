@@ -243,7 +243,7 @@ export default function Home() {
           <h2 id="close-heading">See the demonstration, or write to us.</h2>
           <div className={styles.actions}>
             <a className={styles.primary} href={consoleHref}>
-              Open the demonstration
+              Launch VaultOS
             </a>
             <Link className={styles.secondary} href="/contact">
               Contact PineryZ

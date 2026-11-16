@@ -1,9 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-import { consoleHref } from "./navigation";
+import { consoleHref, docsHref } from "./navigation";
 import styles from "./Footer.module.css";
-
-const contactEmail = "info@pineryz.com";
 
 const columns = [
   {
@@ -15,15 +13,14 @@ const columns = [
   },
   {
     title: "Company",
+    split: true,
     links: [
       { href: "/about", label: "About" },
+      { href: docsHref, label: "Docs", external: true },
       { href: "/careers", label: "Careers" },
-      { href: "/contact", label: "Contact" },
+      { href: "/contact", label: "Contact Us" },
+      { href: "/privacy", label: "Privacy" },
     ],
-  },
-  {
-    title: "Contact",
-    links: [{ href: `mailto:${contactEmail}`, label: contactEmail }],
   },
 ] as const;
 
@@ -79,7 +76,13 @@ export function Footer() {
             {columns.map((column) => (
               <div key={column.title} className={styles.column}>
                 <p className={styles.columnTitle}>{column.title}</p>
-                <ul className={styles.columnList}>
+                <ul
+                  className={
+                    "split" in column && column.split
+                      ? `${styles.columnList} ${styles.columnListSplit}`
+                      : styles.columnList
+                  }
+                >
                   {column.links.map((item) => (
                     <li key={item.href}>
                       {item.href.startsWith("/") ? (
@@ -87,7 +90,13 @@ export function Footer() {
                           {item.label}
                         </Link>
                       ) : (
-                        <a href={item.href} className={styles.columnLink}>
+                        <a
+                          href={item.href}
+                          className={styles.columnLink}
+                          {...("external" in item && item.external
+                            ? { target: "_blank", rel: "noopener noreferrer" }
+                            : {})}
+                        >
                           {item.label}
                         </a>
                       )}

@@ -178,7 +178,7 @@ export default function AboutPage() {
                 Explore VaultOS
               </Link>
               <a href={consoleHref} className={styles.secondary}>
-                Open the demonstration
+                Launch VaultOS
               </a>
             </div>
           </section>
