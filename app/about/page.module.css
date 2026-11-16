@@ -1,6 +1,30 @@
 .hero {
-  background: var(--color-navy);
-  color: var(--color-text-inverse);
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 26rem;
+  overflow: hidden;
+  background-color: #070b18;
+  color: #e8f0ff;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(
+      90deg,
+      rgba(7, 11, 24, 0.92) 0%,
+      rgba(7, 11, 24, 0.74) 46%,
+      rgba(7, 11, 24, 0.32) 74%,
+      rgba(7, 11, 24, 0.12) 100%
+    ),
+    url("/about-planet-hires.jpg");
+  background-repeat: no-repeat;
+  background-position: 72% center, 72% center;
+  background-size: cover, cover;
+  pointer-events: none;
 }
 
 .heroInner,
@@ -11,20 +35,27 @@
   padding: var(--space-16) var(--layout-gutter);
 }
 
+.heroInner {
+  position: relative;
+  z-index: 1;
+}
+
 .hero h1 {
   margin: 0;
-  max-width: 14em;
-  color: var(--color-text-inverse);
+  max-width: 11em;
+  color: #f4f7ff;
   font-size: var(--text-display-size);
   font-weight: var(--font-weight-medium);
   letter-spacing: var(--text-display-tracking);
   line-height: var(--text-display-line);
+  text-shadow: 0 1px 18px rgba(4, 8, 20, 0.55);
 }
 
 .lede {
-  max-width: var(--layout-measure);
+  max-width: 38rem;
   margin: var(--space-6) 0 0;
-  color: var(--color-text-inverse-soft);
+  color: #c9d6ee;
+  text-shadow: 0 1px 14px rgba(4, 8, 20, 0.5);
 }
 
 .body {
@@ -167,6 +198,24 @@
 }
 
 @media (min-width: 720px) {
+  .hero {
+    min-height: 34rem;
+  }
+
+  .hero::before {
+    inset: 0 0 0 36%;
+    background-image:
+      linear-gradient(
+        90deg,
+        #070b18 0%,
+        rgba(7, 11, 24, 0.55) 16%,
+        rgba(7, 11, 24, 0.08) 34%
+      ),
+      url("/about-planet-hires.jpg");
+    background-position: left center, center;
+    background-size: cover, cover;
+  }
+
   .items,
   .steps {
     grid-template-columns: repeat(2, minmax(0, 1fr));

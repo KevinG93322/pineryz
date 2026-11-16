@@ -1,9 +1,41 @@
 .hero {
-  background: var(--color-navy);
-  color: var(--color-text-inverse);
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  min-height: 22rem;
+  overflow: hidden;
+  background-color: #f3f4f6;
+  color: #1a2330;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("/career-hero.jpg");
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-size: cover;
+  pointer-events: none;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(243, 244, 246, 0.94) 0%,
+    rgba(243, 244, 246, 0.9) 26%,
+    rgba(243, 244, 246, 0.42) 42%,
+    rgba(243, 244, 246, 0) 56%
+  );
+  pointer-events: none;
 }
 
 .heroInner {
+  position: relative;
+  z-index: 1;
   width: 100%;
   max-width: var(--layout-content);
   margin: 0 auto;
@@ -12,7 +44,7 @@
 
 .eyebrow {
   margin: 0 0 var(--space-4);
-  color: var(--color-text-inverse-soft);
+  color: #92253a;
   font-size: var(--text-eyebrow-size);
   font-weight: var(--font-weight-medium);
   letter-spacing: 0.04em;
@@ -21,8 +53,8 @@
 
 .hero h1 {
   margin: 0;
-  max-width: 16em;
-  color: var(--color-text-inverse);
+  max-width: 9em;
+  color: #1a2330;
   font-size: var(--text-display-size);
   font-weight: var(--font-weight-medium);
   letter-spacing: var(--text-display-tracking);
@@ -30,9 +62,9 @@
 }
 
 .lede {
-  max-width: var(--layout-measure);
+  max-width: 22rem;
   margin: var(--space-6) 0 0;
-  color: var(--color-text-inverse-soft);
+  color: #3d4a59;
 }
 
 .roles {
@@ -110,4 +142,14 @@
   color: var(--color-ink-soft);
   font-size: 22px;
   line-height: 1;
+}
+
+@media (min-width: 720px) {
+  .hero {
+    min-height: 28rem;
+  }
+
+  .hero::before {
+    background-position: center center;
+  }
 }
